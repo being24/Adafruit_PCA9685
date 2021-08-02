@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="PCA9685_wrapper",
-    version="0.0.4",
+    version="0.0.5",
     author="being24",
     author_email="being24@gmail.com",
     description="adafruit-pca9685 wrapper for Raspberry pi",

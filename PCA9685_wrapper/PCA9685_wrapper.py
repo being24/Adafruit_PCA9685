@@ -11,12 +11,13 @@ class PWM:
     """python3でPCA9685でPWMを出力するサンプル
     """
 
-    def __init__(self, channel: int, address: int = 0x40):
+    def __init__(self, channel: int, address: int = 0x40, freq: int = 60):
         """PWM出力の初期化
 
         Args:
             channel (int): チャンネルごとにインスタンス化する
             address (int, optional): I2Cのアドレス. Defaults to 0x40.
+            freq (int, optional): PWM周波数. Defaults to 60.
 
         Raises:
             ValueError: 16チャンネル以外はエラーを送出
@@ -31,8 +32,7 @@ class PWM:
         # initialize PCA9685
         self.mPwm = Adafruit_PCA9685.PCA9685(address=address)
 
-        # 60Hzにするとうまくいくらしい、なぜ？
-        self.mPwm.set_pwm_freq(60)
+        self.mPwm.set_pwm_freq(freq)
 
         # パルスの最小最大値を設定する
         self.min_pulse = 0
